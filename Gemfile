@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 gem 'rake'
 gem 'configatron', '=2.13.0'
