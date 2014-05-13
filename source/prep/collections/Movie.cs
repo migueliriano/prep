@@ -28,14 +28,19 @@ namespace prep.collections
       return title.GetHashCode();
     }
 
-    public static Condition<Movie> is_published_by_pixar()
+    public static Condition<Movie> is_published_by(ProductionStudio studio)
     {
-      return x => x.production_studio == ProductionStudio.Pixar;
+      return x => x.production_studio == studio;
     }
 
-    public static Condition<Movie> is_published_by(ProductionStudio studio)
-      {
-          return x => x.production_studio == studio;
-      }
+    public static Condition<Movie> is_in_genre(Genre  genre)
+    {
+      return x => x.genre == genre;
+    }
+
+    public static Condition<Movie> is_published_by_pixar_or_disney()
+    {
+      throw new NotImplementedException();
+    }
   }
 }
