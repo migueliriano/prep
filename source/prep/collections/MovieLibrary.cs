@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using prep.utility;
+using prep.utility.filtering;
 
 namespace prep.collections
 {
@@ -32,8 +33,7 @@ namespace prep.collections
 
     public IEnumerable<Movie> all_movies_published_by_pixar()
     {
-        IsPublishedBy publishedByPixar = new IsPublishedBy(ProductionStudio.Pixar);
-        return movies.all_items_matching(publishedByPixar);
+        return movies.all_items_matching(x => x.production_studio == ProductionStudio.Pixar);
     }
 
     public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
