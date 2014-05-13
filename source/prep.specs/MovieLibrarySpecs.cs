@@ -123,7 +123,7 @@ namespace prep.specs
 
       Because b = () =>
         spec.catch_exception(() => sut.all_movies().downcast_to<IList<Movie>>());
-
+        
       It should_get_an_invalid_cast_exception = () =>
         spec.exception_thrown.ShouldBeAn<InvalidCastException>();
     }
