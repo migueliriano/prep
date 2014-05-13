@@ -32,101 +32,80 @@ namespace prep.collections
 
     public IEnumerable<Movie> all_movies_published_by_pixar()
     {
-      var result = new List<Movie>();
       foreach (var movie in movies)
       {
         if (movie.production_studio.Equals(ProductionStudio.Pixar))
         {
-          result.Add(movie);
+            yield return movie;
         }
       }
-
-      return result;
     }
 
     public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
     {
-      var result = new List<Movie>();
       foreach (var movie in movies)
       {
         if (movie.production_studio.Equals(ProductionStudio.Pixar) ||
             movie.production_studio.Equals(ProductionStudio.Disney))
         {
-          result.Add(movie);
+            yield return movie;
         }
       }
-
-      return result;
     }
 
     public IEnumerable<Movie> all_movies_not_published_by_pixar()
     {
-      var result = new List<Movie>();
       foreach (var movie in movies)
       {
         if (!movie.production_studio.Equals(ProductionStudio.Pixar))
         {
-          result.Add(movie);
+            yield return movie;
         }
       }
-
-      return result;
     }
 
     public IEnumerable<Movie> all_movies_published_after(int year)
     {
-      var result = new List<Movie>();
       foreach (var movie in movies)
       {
         if (movie.date_published.Year > year)
         {
-          result.Add(movie);
+            yield return movie;
         }
       }
-
-      return result;
     }
 
     public IEnumerable<Movie> all_movies_published_between_years(int startingYear, int endingYear)
     {
-      var result = new List<Movie>();
       foreach (var movie in movies)
       {
         if (movie.date_published.Year >= startingYear && movie.date_published.Year <= endingYear)
         {
-          result.Add(movie);
+            yield return movie;
         }
       }
-
-      return result;
     }
 
     public IEnumerable<Movie> all_kid_movies()
     {
-      var result = new List<Movie>();
       foreach (var movie in movies)
       {
         if (movie.genre.Equals(Genre.kids))
         {
-          result.Add(movie);
+            yield return movie;
         }
       }
-
-      return result;
     }
 
     public IEnumerable<Movie> all_action_movies()
     {
-      var result = new List<Movie>();
       foreach (var movie in movies)
       {
         if (movie.genre.Equals(Genre.action))
         {
-          result.Add(movie);
+            yield return movie;
         }
       }
-
-      return result;
     }
 
     public IEnumerable<Movie> sort_all_movies_by_title_descending()
