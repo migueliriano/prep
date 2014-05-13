@@ -30,15 +30,21 @@ namespace prep.collections
       return movies.Contains(movie);
     }
 
+    public delegate bool MovieCondition(Movie movie);
+
+    public IEnumerable<Movie> all_movies_matching(MovieCondition condition)
+    {
+      return movies.all_items_matching(condition);
+    }
+
+    public bool is_published_by_pixar(Movie movie)
+    {
+      return movie.production_studio == ProductionStudio.Pixar;
+    }
+
     public IEnumerable<Movie> all_movies_published_by_pixar()
     {
-      foreach (var movie in movies)
-      {
-        if (movie.production_studio.Equals(ProductionStudio.Pixar))
-        {
-            yield return movie;
-        }
-      }
+      return all_movies_matching(x => x.production_studio == ProductionStudio.Pixar);
     }
 
     public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
@@ -55,35 +61,19 @@ namespace prep.collections
 
     public IEnumerable<Movie> all_movies_not_published_by_pixar()
     {
-      foreach (var movie in movies)
-      {
-        if (!movie.production_studio.Equals(ProductionStudio.Pixar))
-        {
-            yield return movie;
-        }
-      }
+      return all_movies_matching(movie => !movie.production_studio.Equals(ProductionStudio.Pixar));
     }
 
     public IEnumerable<Movie> all_movies_published_after(int year)
     {
-      foreach (var movie in movies)
-      {
-        if (movie.date_published.Year > year)
-        {
-            yield return movie;
-        }
-      }
+      return all_movies_matching(movie => movie.date_published.Year > year);
     }
 
     public IEnumerable<Movie> all_movies_published_between_years(int startingYear, int endingYear)
     {
-      foreach (var movie in movies)
-      {
-        if (movie.date_published.Year >= startingYear && movie.date_published.Year <= endingYear)
-        {
-            yield return movie;
-        }
-      }
+      return
+        all_movies_matching(
+          movie => movie.date_published.Year >= startingYear && movie.date_published.Year <= endingYear);
     }
 
     public IEnumerable<Movie> all_kid_movies()
