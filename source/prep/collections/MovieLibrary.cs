@@ -34,7 +34,7 @@ namespace prep.collections
 
     public IEnumerable<Movie> all_movies_matching(MovieCondition condition)
     {
-      return movies.all_items_matching(condition);
+      return movies.all_items_matching(condition.Invoke);
     }
 
     public bool is_published_by_pixar(Movie movie)
