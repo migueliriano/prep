@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using prep.collections;
 
 namespace prep.utility.filtering
 {
@@ -13,19 +15,22 @@ namespace prep.utility.filtering
 
     public IMatchAn<ItemToMatch> equal_to(AttributeType value)
     {
-      return new AnonymousMatch<ItemToMatch>(x => accessor(x).Equals(value));
+      return equal_to_any(value);
     }
 
     public IMatchAn<ItemToMatch> equal_to_any(params AttributeType[] values)
     {
-        IMatchAn<ItemToMatch> result = equal_to(values[0]);
+      return new AnonymousMatch<ItemToMatch>(x =>
+      {
+        var possible_values = new List<AttributeType>(values);
+        var attribute_value = accessor(x);
+        return possible_values.Contains(attribute_value);
+      });
+    }
 
-        for (int i = 1; i < values.Length; i++)
-        {
-            result = result.or(equal_to(values[i]));
-        }
-
-        return result;
+    public IMatchAn<ItemToMatch> not_equal_to(AttributeType value)
+    {
+      throw new NotImplementedException();
     }
   }
 }
