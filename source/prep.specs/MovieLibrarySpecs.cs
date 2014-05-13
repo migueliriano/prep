@@ -262,7 +262,7 @@ namespace prep.specs
       It should_be_able_to_find_all_action_movies = () =>
       {
         var criteria = Match<Movie>.with_attribute(x => x.genre)
-          .equal_to(Genre.kids);
+          .equal_to(Genre.action);
 
         var results = sut.all_movies().all_items_matching(criteria);
 

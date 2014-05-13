@@ -29,7 +29,7 @@ namespace prep.utility.filtering
 
     public IMatchAn<ItemToMatch> not_equal_to(AttributeType value)
     {
-      throw new NotImplementedException();
+      return equal_to(value).not();
     }
   }
 }
