@@ -1,7 +1,6 @@
-﻿using prep.utility;
-using prep.utility.filtering;
+﻿using System;
 
-namespace prep.collections
+namespace prep.utility.filtering
 {
   public class MatchFactory<ItemToMatch, AttributeType>
   {
@@ -19,7 +18,7 @@ namespace prep.collections
 
     public IMatchAn<ItemToMatch> equal_to_any(params AttributeType[] values)
     {
-      throw new System.NotImplementedException();
+      throw new NotImplementedException();
     }
   }
 }
