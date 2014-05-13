@@ -1,4 +1,5 @@
 using System;
+using prep.utility;
 
 namespace prep.collections
 {
@@ -25,6 +26,11 @@ namespace prep.collections
     public override int GetHashCode()
     {
       return title.GetHashCode();
+    }
+
+    public static Condition<Movie> is_published_by_pixar()
+    {
+      return x => x.production_studio == ProductionStudio.Pixar;
     }
   }
 }

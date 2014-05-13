@@ -30,49 +30,31 @@ namespace prep.collections
       return movies.Contains(movie);
     }
 
-    public delegate bool MovieCondition(Movie movie);
-
-    public IEnumerable<Movie> all_movies_matching(MovieCondition condition)
-    {
-      return movies.all_items_matching(condition.Invoke);
-    }
-
-    public bool is_published_by_pixar(Movie movie)
-    {
-      return movie.production_studio == ProductionStudio.Pixar;
-    }
-
     public IEnumerable<Movie> all_movies_published_by_pixar()
     {
-      return all_movies_matching(x => x.production_studio == ProductionStudio.Pixar);
+      return movies.all_items_matching(x => x.production_studio == ProductionStudio.Pixar);
     }
 
     public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
     {
-      foreach (var movie in movies)
-      {
-        if (movie.production_studio.Equals(ProductionStudio.Pixar) ||
-            movie.production_studio.Equals(ProductionStudio.Disney))
-        {
-            yield return movie;
-        }
-      }
+      return movies.all_items_matching(movie => movie.production_studio.Equals(ProductionStudio.Pixar) ||
+                                                movie.production_studio.Equals(ProductionStudio.Disney));
     }
 
     public IEnumerable<Movie> all_movies_not_published_by_pixar()
     {
-      return all_movies_matching(movie => !movie.production_studio.Equals(ProductionStudio.Pixar));
+      return movies.all_items_matching(movie => !movie.production_studio.Equals(ProductionStudio.Pixar));
     }
 
     public IEnumerable<Movie> all_movies_published_after(int year)
     {
-      return all_movies_matching(movie => movie.date_published.Year > year);
+      return movies.all_items_matching(movie => movie.date_published.Year > year);
     }
 
     public IEnumerable<Movie> all_movies_published_between_years(int startingYear, int endingYear)
     {
       return
-        all_movies_matching(
+        movies.all_items_matching(
           movie => movie.date_published.Year >= startingYear && movie.date_published.Year <= endingYear);
     }
 
