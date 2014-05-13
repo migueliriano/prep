@@ -32,5 +32,10 @@ namespace prep.collections
     {
       return x => x.production_studio == ProductionStudio.Pixar;
     }
+
+    public static Condition<Movie> is_published_by(ProductionStudio studio)
+      {
+          return x => x.production_studio == studio;
+      }
   }
 }
