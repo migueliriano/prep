@@ -1,23 +1,13 @@
-﻿using System;
-using prep.utility;
-using prep.utility.filtering;
+﻿using prep.utility.filtering;
 
 namespace prep.collections
 {
   public class Match<ItemToMatch>
   {
-
-      private static AtributeCondition<ItemToMatch> baseCondition;
-
-
-
-      public static AtributeCondition<ItemToMatch> with_attribute(AtributeCondition<ItemToMatch> atribute)
+    public static MatchFactory<ItemToMatch, AttributeType> with_attribute<AttributeType>(
+      AttributeAccessor<ItemToMatch, AttributeType> accessor)
     {
-          baseCondition = atribute;
-          return baseCondition;
+      return new MatchFactory<ItemToMatch, AttributeType>(accessor);
     }
-
-
-
   }
 }
