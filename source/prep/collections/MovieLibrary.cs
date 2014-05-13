@@ -32,7 +32,8 @@ namespace prep.collections
 
     public IEnumerable<Movie> all_movies_published_by_pixar()
     {
-      return movies.all_items_matching(x => x.production_studio == ProductionStudio.Pixar);
+        IsPublishedBy publishedByPixar = new IsPublishedBy(ProductionStudio.Pixar);
+        return movies.all_items_matching(publishedByPixar);
     }
 
     public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
