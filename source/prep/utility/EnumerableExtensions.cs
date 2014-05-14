@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using prep.collections;
 using prep.utility.filtering;
 using prep.utility.Sorting;
 
@@ -41,10 +43,14 @@ namespace prep.utility
       return items.all_items_matching(criteria.matches);
     }
 
-    public static FilteredEnumerable<ItemToMatch, AttributeType> where<ItemToMatch, AttributeType>(
-      this IEnumerable<ItemToMatch> items, IGetAnAttributeValue<ItemToMatch, AttributeType> accessor)
+    public delegate IMatchAn<ItemToMatch> ExtensionPointConfiguration<ItemToMatch, AttributeType>(
+      IProvideAccessToCreateMatchers<ItemToMatch, AttributeType> extension_point_configuration);
+
+    public static IEnumerable<ItemToMatch> where<ItemToMatch, AttributeType>(
+      this IEnumerable<ItemToMatch> items, IGetAnAttributeValue<ItemToMatch, AttributeType> accessor,
+      ExtensionPointConfiguration<ItemToMatch, AttributeType> configuration)
     {
-      return new FilteredEnumerable<ItemToMatch, AttributeType>(accessor, new AlwaysMatches<ItemToMatch>(), items);
+      throw new NotImplementedException();
     }
   }
 }

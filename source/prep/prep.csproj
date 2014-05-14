@@ -70,7 +70,6 @@
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySet.cs" />
     <Compile Include="utility\AlwaysMatches.cs" />
-    <Compile Include="utility\filtering\FilteredEnumerable.cs" />
     <Compile Include="utility\IMatch.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
     <Compile Include="utility\filtering\AnonymousMatch.cs" />

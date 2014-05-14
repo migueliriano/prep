@@ -208,17 +208,14 @@ namespace prep.specs
 
       It should_be_able_to_find_all_movies_published_by_pixar = () =>
       {
-        var results = sut.all_movies().where(x => x.production_studio);
+        var results = sut.all_movies().where(x => x.production_studio, x => x.equal_to(ProductionStudio.Pixar));
 
         results.ShouldContain(cars, a_bugs_life);
       };
 
       It should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
       {
-        var criteria = Match<Movie>.with_attribute(x => x.production_studio)
-          .equal_to_any(ProductionStudio.Pixar,ProductionStudio.Disney);
-
-        var results = sut.all_movies().all_items_matching(criteria);
+        var results = sut.all_movies().where(x => x.production_studio, x => x.equal_to_any(ProductionStudio.Pixar,ProductionStudio.Disney));
 
         results.ShouldContainOnly(a_bugs_life, pirates_of_the_carribean, cars);
       };
