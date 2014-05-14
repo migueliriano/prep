@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace prep.utility.filtering
 {
-  public class MatchFactory<ItemToMatch, AttributeType>
+  public class MatchFactory<ItemToMatch, AttributeType> : ICreateMatchers<ItemToMatch, AttributeType>
   {
     AttributeAccessor<ItemToMatch, AttributeType> accessor;
 
