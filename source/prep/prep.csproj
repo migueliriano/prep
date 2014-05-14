@@ -69,6 +69,7 @@
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySet.cs" />
+    <Compile Include="learning_mspec\Calculator.cs" />
     <Compile Include="utility\AlwaysMatches.cs" />
     <Compile Include="utility\IMatch.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
