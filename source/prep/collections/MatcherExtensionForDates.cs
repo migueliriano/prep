@@ -5,19 +5,11 @@ namespace prep.collections
 {
   public static class MatcherExtensionForDates
   {
-    public static IMatchAn<ItemToMatch> greater_than<ItemToMatch>(this MatcherCreationExtensionPoint<ItemToMatch, DateTime> extension_point, int year, DateValues date_value) 
+    public static IMatchAn<ItemToMatch> greater_than<ItemToMatch>(
+      this MatcherCreationExtensionPoint<ItemToMatch, DateTime> extension_point, int year, IGetAnAttributeValue<DateTime, int> date_part_accessor)
     {
-      if (date_value == DateValues.year)
-      {
-
-           return new AnonymousMatch<ItemToMatch>(x => extension_point.accessor(x).Year>year);
-      }
-      throw new NotImplementedException("We don't support that yet");
+        return extension_point.create_from_matcher(
+          Match<DateTime>.with_attribute(x => date_part_accessor(x)).greater_than(year));
     }
-  }
-
-  public class DateValues
-  {
-    public static readonly DateValues year = new DateValues();
   }
 }
