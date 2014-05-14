@@ -62,6 +62,7 @@
     <Compile Include="collections\IsPublishedBy.cs" />
     <Compile Include="collections\Match.cs" />
     <Compile Include="collections\MatcherCreationExtensionPoint.cs" />
+    <Compile Include="collections\MatcherExtensionForDates.cs" />
     <Compile Include="collections\MatcherExtensions.cs" />
     <Compile Include="collections\Movie.cs" />
     <Compile Include="collections\MovieLibrary.cs" />
