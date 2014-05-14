@@ -44,15 +44,15 @@ namespace prep.utility
     }
 
     public delegate IMatchAn<ItemToMatch> ExtensionPointConfiguration<ItemToMatch, AttributeType>(
-      IProvideAccessToCreateMatchers<ItemToMatch, AttributeType> extension_point_configuration);
+      MatcherCreationExtensionPoint<ItemToMatch, AttributeType> extension_point_configuration);
 
     public static IEnumerable<ItemToMatch> where<ItemToMatch, AttributeType>(
       this IEnumerable<ItemToMatch> items, IGetAnAttributeValue<ItemToMatch, AttributeType> accessor,
       ExtensionPointConfiguration<ItemToMatch, AttributeType> configuration)
     {
-        var a = configuration(new MatcherCreationExtensionPoint<ItemToMatch, AttributeType>(accessor));
-        return items.all_items_matching(a);
-
+      MatcherCreationExtensionPoint<ItemToMatch, AttributeType> extension_point = Match<ItemToMatch>.with_attribute(accessor);
+      var matcher = configuration(extension_point);
+      return items.all_items_matching(matcher);
     }
   }
 }
