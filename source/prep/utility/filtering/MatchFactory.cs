@@ -18,7 +18,14 @@ namespace prep.utility.filtering
 
     public IMatchAn<ItemToMatch> equal_to_any(params AttributeType[] values)
     {
-      throw new NotImplementedException();
+        IMatchAn<ItemToMatch> result = equal_to(values[0]);
+
+        for (int i = 1; i < values.Length; i++)
+        {
+            result = result.or(equal_to(values[i]));
+        }
+
+        return result;
     }
   }
 }
