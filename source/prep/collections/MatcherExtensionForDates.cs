@@ -9,7 +9,8 @@ namespace prep.collections
     {
       if (date_value == DateValues.year)
       {
-        throw new NotImplementedException("Finish");
+
+           return new AnonymousMatch<ItemToMatch>(x => extension_point.accessor(x).Year>year);
       }
       throw new NotImplementedException("We don't support that yet");
     }
