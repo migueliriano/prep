@@ -208,9 +208,9 @@ namespace prep.specs
 
       It should_be_able_to_find_all_movies_published_by_pixar = () =>
       {
-        var results = sut.all_movies().where(x => x.production_studio).equal_to(ProductionStudio.Pixar);
+        var results = sut.all_movies().where(x => x.production_studio);
 
-        results.ShouldContainOnly(cars, a_bugs_life);
+        results.ShouldContain(cars, a_bugs_life);
       };
 
       It should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
@@ -333,23 +333,18 @@ namespace prep.specs
         //Universal
         //Disney
         //Paramount
-        //var results = sut.all_movies().sort_by(x => x.production_studio,
-        //  ProductionStudio.MGM,
-        //  ProductionStudio.Pixar,
-        //  ProductionStudio.Dreamworks,
-        //  ProductionStudio.Universal,
-        //  ProductionStudio.Disney,
-        //  ProductionStudio.Paramount
-        //  ).then_by(x => x.date_published);
+        var results = sut.all_movies().sort_by(x => x.production_studio,
+          ProductionStudio.MGM,
+          ProductionStudio.Pixar,
+          ProductionStudio.Dreamworks,
+          ProductionStudio.Universal,
+          ProductionStudio.Disney,
+          ProductionStudio.Paramount
+          ).then_by(x => x.date_published);
 
-        ///* should return a set of results 
-        //         * in the collection sorted by the rating of the production studio (not the movie rating) and year published. for this exercise you need to take the studio ratings
-        //         * into effect, which means that you first have to sort by movie studio (taking the ranking into account) and then by the
-        //         * year published. For this test you cannot add any extra properties/fields to either the ProductionStudio or
-        //         * Movie classes.*/
-        //results.ShouldContainOnlyInOrder(the_ring, theres_something_about_mary, a_bugs_life, cars, shrek,
-        //                                 indiana_jones_and_the_temple_of_doom,
-        //                                 pirates_of_the_carribean);
+        results.ShouldContainOnlyInOrder(the_ring, theres_something_about_mary, a_bugs_life, cars, shrek,
+                                         indiana_jones_and_the_temple_of_doom,
+                                         pirates_of_the_carribean);
       };
     }
 

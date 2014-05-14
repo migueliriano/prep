@@ -69,7 +69,8 @@
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySet.cs" />
-    <Compile Include="utility\filtering\TestClass.cs" />
+    <Compile Include="utility\AlwaysMatches.cs" />
+    <Compile Include="utility\filtering\FilteredEnumerable.cs" />
     <Compile Include="utility\IMatch.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
     <Compile Include="utility\filtering\AnonymousMatch.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="utility\filtering\OrMatch.cs" />
     <Compile Include="utility\filtering\IGetAnAttributeValue.cs" />
     <Compile Include="utility\ranges\IContainValues.cs" />
+    <Compile Include="utility\SortedEnumerable.cs" />
     <Compile Include="utility\Sorting\CombinedComparer.cs" />
     <Compile Include="utility\Sorting\AttributeComparer.cs" />
     <Compile Include="utility\Sorting\ComparableAttributeComparer.cs" />
