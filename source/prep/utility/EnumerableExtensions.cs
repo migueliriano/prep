@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using prep.collections;
 using prep.utility.filtering;
 
 namespace prep.utility
@@ -31,6 +32,13 @@ namespace prep.utility
     public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, IMatchAn<T> criteria)
     {
       return items.all_items_matching(criteria.matches);
+    }
+
+    public static TestClass<ItemToMatch, AttributeType> where<ItemToMatch, AttributeType>(this IEnumerable<ItemToMatch> items, IGetAnAttributeValue<ItemToMatch, AttributeType> accessor)
+    {
+
+        return new TestClass<ItemToMatch, AttributeType>(items, accessor);
+
     }
   }
 }
