@@ -2,16 +2,16 @@
 {
   public class AnonymousMatch<ItemToMatch> : IMatchAn<ItemToMatch>
   {
-    Condition<ItemToMatch> condition;
+    IMatch<ItemToMatch> match;
 
-    public AnonymousMatch(Condition<ItemToMatch> condition)
+    public AnonymousMatch(IMatch<ItemToMatch> match)
     {
-      this.condition = condition;
+      this.match = match;
     }
 
     public bool matches(ItemToMatch item)
     {
-      return condition(item);      
+      return match(item);      
     }
   }
 }

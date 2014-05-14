@@ -10,11 +10,11 @@ namespace prep.utility
       foreach (var item in items) yield return item;
     }
 
-    public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, Condition<T> condition)
+    public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, IMatch<T> match)
     {
       foreach (var item in items)
       {
-        if (condition(item))
+        if (match(item))
         {
           yield return item;
         }

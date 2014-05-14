@@ -57,26 +57,31 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="collections\ComparableMatchFactory.cs" />
     <Compile Include="collections\Genre.cs" />
     <Compile Include="collections\IsInGenre.cs" />
     <Compile Include="collections\IsPublishedBy.cs" />
     <Compile Include="collections\Match.cs" />
+    <Compile Include="collections\MatcherCreationExtensionPoint.cs" />
+    <Compile Include="collections\MatcherExtensions.cs" />
     <Compile Include="collections\Movie.cs" />
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySet.cs" />
-    <Compile Include="utility\Condition.cs" />
+    <Compile Include="utility\IMatch.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
     <Compile Include="utility\filtering\AnonymousMatch.cs" />
-    <Compile Include="utility\filtering\ICreateMatchers.cs" />
+    <Compile Include="utility\filtering\AttributeMatcher.cs" />
+    <Compile Include="utility\filtering\EqualToAny.cs" />
+    <Compile Include="utility\filtering\FallsInRange.cs" />
     <Compile Include="utility\filtering\IMatchAn.cs" />
+    <Compile Include="utility\filtering\InclusiveRange.cs" />
+    <Compile Include="utility\filtering\RangeWithNoUpperBound.cs" />
     <Compile Include="utility\filtering\MatchExtensions.cs" />
-    <Compile Include="utility\filtering\MatchFactory.cs" />
     <Compile Include="utility\filtering\NegatingMatch.cs" />
     <Compile Include="utility\filtering\NeverMatches.cs" />
     <Compile Include="utility\filtering\OrMatch.cs" />
-    <Compile Include="utility\filtering\AttributeAccessor.cs" />
+    <Compile Include="utility\filtering\IGetAnAttributeValue.cs" />
+    <Compile Include="utility\ranges\IContainValues.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
