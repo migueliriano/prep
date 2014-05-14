@@ -10,6 +10,13 @@ namespace prep.utility
       foreach (var item in items) yield return item;
     }
 
+    public static IEnumerable<T> sort_using<T>(this IEnumerable<T> items, IComparer<T> comparer )
+    {
+      var sorted = new List<T>(items);
+      sorted.Sort(comparer);
+      return sorted;
+    }
+
     public static IEnumerable<T> all_items_matching<T>(this IEnumerable<T> items, IMatch<T> match)
     {
       foreach (var item in items)

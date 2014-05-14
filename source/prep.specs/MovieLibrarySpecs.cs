@@ -284,7 +284,9 @@ namespace prep.specs
 
       It should_be_able_to_sort_all_movies_by_title_descending = () =>
       {
-        var results = sut.sort_all_movies_by_title_descending();
+        var comparer = Compare<Movie>.by_descending(x => x.title);
+
+        var results = sut.all_movies().sort_using(comparer);
 
         results.ShouldContainOnlyInOrder(theres_something_about_mary, the_ring, shrek,
                                          pirates_of_the_carribean, indiana_jones_and_the_temple_of_doom,
@@ -293,7 +295,11 @@ namespace prep.specs
 
       It should_be_able_to_sort_all_movies_by_title_ascending = () =>
       {
+//        var comparer = Compare<Movie>.by(x => x.title);
+
+//        var results = sut.all_movies().sort_using(comparer);
         var results = sut.sort_all_movies_by_title_ascending();
+
 
         results.ShouldContainOnlyInOrder(a_bugs_life, cars, indiana_jones_and_the_temple_of_doom,
                                          pirates_of_the_carribean, shrek, the_ring,
@@ -326,6 +332,16 @@ namespace prep.specs
         //Dreamworks
         //Universal
         //Disney
+        //Paramount
+//        var comparer = Compare<Movie>.by(x => x.production_studio,
+//          ProductionStudio.Pixar,
+//          ProductionStudio.MGM,
+//          ProductionStudio.Dreamworks,
+//          ProductionStudio.Universal,
+//          ProductionStudio.Disney,
+//          ProductionStudio.Paramount
+//          ).then_by(x => x.date_published);
+//
         var results = sut.sort_all_movies_by_movie_studio_and_year_published();
         /* should return a set of results 
                  * in the collection sorted by the rating of the production studio (not the movie rating) and year published. for this exercise you need to take the studio ratings
