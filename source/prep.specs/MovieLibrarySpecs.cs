@@ -54,6 +54,7 @@ using prep.specs.utility;
  * Develop With Passion®!!
  */
 using prep.utility;
+using prep.utility.filtering;
 
 namespace prep.specs
 {

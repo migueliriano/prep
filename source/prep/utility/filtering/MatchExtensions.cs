@@ -1,4 +1,6 @@
-﻿namespace prep.utility.filtering
+﻿using prep.collections;
+
+namespace prep.utility.filtering
 {
   public static class MatchExtensions
   {
@@ -7,5 +9,13 @@
     {
       return new OrMatch<ItemToMatch>(left, right);
     }
+
+
+       public static IMatchAn<Item> equal_to<Item>(this AtributeCondition<Item> atributeCondition, ProductionStudio st)
+      {
+          AnonymousMatch<Item> match = new AnonymousMatch<Item>(x => atributeCondition(x) == st);
+          return match;
+
+      }
   }
 }
