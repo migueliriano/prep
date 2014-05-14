@@ -84,8 +84,11 @@
     <Compile Include="utility\filtering\OrMatch.cs" />
     <Compile Include="utility\filtering\IGetAnAttributeValue.cs" />
     <Compile Include="utility\ranges\IContainValues.cs" />
-    <Compile Include="utility\Sorting\AttributeSorting.cs" />
+    <Compile Include="utility\Sorting\CombinedComparer.cs" />
+    <Compile Include="utility\Sorting\AttributeComparer.cs" />
+    <Compile Include="utility\Sorting\ComparableAttributeComparer.cs" />
     <Compile Include="utility\Sorting\Compare.cs" />
+    <Compile Include="utility\Sorting\ReverseComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
